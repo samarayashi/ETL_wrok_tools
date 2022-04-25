@@ -1,0 +1,52 @@
+1. python re upper lower
+ Python Regex Flags
+	https://pynative.com/python-regex-flags/
+	
+2. python raise error
+	How do I manually throw/raise an exception in Python?
+		https://stackoverflow.com/questions/2052390/manually-raising-throwing-an-exception-in-python
+	Exception hierarchy
+		https://docs.python.org/3/library/exceptions.html#exception-hierarchy
+	python assert
+		https://openhome.cc/Gossip/Python/Assert.html
+		
+3. __init__ constructor將cursor實例傳遞下去
+	https://codereview.stackexchange.com/questions/182700/python-class-to-manage-a-table-in-sqlite
+	https://stackoverflow.com/questions/24611529/pythonic-way-to-close-connection-like-objects-in-del?answertab=scoredesc#tab-top
+	添加 __enter__, __exit__，讓user使用with ... as 開啟，並且確保db會被close
+		def __enter__(self):
+		def __exit__(self, ext_type, exc_value, traceback):
+	不能保證__del__何時會被調用，也不能確保它哪時會被調用
+		正如其他人提到的，__del__應該避免，因為它可能導致不可預測的結果
+	
+
+4. Filtering a list based on a list of booleans
+	list_a = [1, 2, 4, 6]
+	status = [True, False, True, False]
+	https://stackoverflow.com/questions/18665873/filtering-a-list-based-on-a-list-of-booleans
+	
+5. Get the first item from an iterable that matches a condition
+	https://stackoverflow.com/questions/2361426/get-the-first-item-from-an-iterable-that-matches-a-condition
+	Python 2.6+ and Python 3:
+	If you want StopIteration to be raised if no matching element is found:
+		next(x for x in the_iterable if x > 3)
+	If you want default_value (e.g. None) to be returned instead:
+		next((x for x in the_iterable if x > 3), default_value)
+		
+6. 文字內容全半形轉換
+	# https://www.w3schools.com/python/ref_string_translate.asp
+    # https://stackoverflow.com/questions/2422177/python-how-can-i-replace-full-width-characters-with-half-width-characters?answertab=modifieddesc#tab-top
+	
+	全形字元unicode編碼從65281~65374 （十六進位制 0xFF01 ~ 0xFF5E） 半形字元unicode編碼從33~126 （十六進位制 0x21~ 0x7E）
+	空格比較特殊，全形為 12288（0x3000），半形為 32（0x20）
+	中文字沒有所謂全半形，皆為半形
+	除空格外，全形/半形按unicode編碼排序在順序上是對應的（半形 + 0x7e= 全形）,所以可以直接通過用+-法來處理非空格資料，對空格單獨處理。
+	
+7. python __str__ __repr__ difference，修改物件print(object)的內容
+	https://www.geeksforgeeks.org/str-vs-repr-in-python/
+	https://stackoverflow.com/questions/1436703/what-is-the-difference-between-str-and-repr
+	__str__()用於顯示給用戶，而__repr__()用於顯示給開發人員
+	str() 用於為最終用戶創建輸出，而 repr() 主要用於調試和開發。str 的目標是可讀的，而repr 的目標是明確的。
+	
+8. python中何謂iterator, iterable, generator, yield
+	Generator Expression: (number * 2 for number in range(10))	https://medium.com/citycoddee/python%E9%80%B2%E9%9A%8E%E6%8A%80%E5%B7%A7-6-%E8%BF%AD%E4%BB%A3%E9%82%A3%E4%BB%B6%E5%B0%8F%E4%BA%8B-%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3-iteration-iterable-iterator-iter-getitem-next-fac5b4542cf4

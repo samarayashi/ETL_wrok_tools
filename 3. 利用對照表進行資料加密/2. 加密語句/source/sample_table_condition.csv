@@ -1,0 +1,3 @@
+owner,tibero_ori_table,condition
+MX,STG_TA_TABLEA,
+MX,STG_TB_TABLEB,month>='202001'

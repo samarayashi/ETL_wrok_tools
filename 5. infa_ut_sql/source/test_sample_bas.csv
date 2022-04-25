@@ -1,0 +1,27 @@
+source_table_name,target_table_name,column_name
+stg_ta_tablea, bas_ta_tablea, a
+stg_ta_tablea, bas_ta_tablea, b
+stg_ta_tablea, bas_ta_tablea, c
+stg_ta_tablea, bas_ta_tablea, d
+stg_ta_tablea, bas_ta_tablea, e
+stg_ta_tablea, bas_ta_tablea, f
+stg_ta_tablea, bas_ta_tablea, g
+stg_ta_tablea, bas_ta_tablea, h
+stg_ta_tablea, bas_ta_tablea, i
+stg_ta_tablea, bas_ta_tablea, j
+stg_ta_tablea, bas_ta_tablea, k
+stg_ta_tablea, bas_ta_tablea, l
+stg_tb_tableb, bas_tb_tableb, ba
+stg_tb_tableb, bas_tb_tablea, bb
+stg_tb_tableb, bas_tb_tablea, bc
+stg_tb_tableb, bas_tb_tablea, bc
+stg_tb_tableb, bas_tb_tablea, bd
+stg_tb_tableb, bas_tb_tablea, be
+stg_tb_tableb, bas_tb_tablea, bf
+stg_tb_tableb, bas_tb_tablea, bg
+stg_tb_tableb, bas_tb_tablea, bh
+stg_tb_tableb, bas_tb_tablea, bi
+stg_tb_tableb, bas_tb_tablea, bj
+stg_tb_tableb, bas_tb_tablea, bk
+stg_tb_tableb, bas_tb_tablea, bl
+stg_tb_tableb, bas_tb_tablea, bm

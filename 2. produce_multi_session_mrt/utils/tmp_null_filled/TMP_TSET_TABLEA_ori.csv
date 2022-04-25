@@ -1,0 +1,12 @@
+ori_sql,all_columns 
+"insert into TMP_TSET_TABLEA( sno,
+                       ftyp, ciid, idn, brdte, name, hmk,
+                       uno, unock,
+                       txcd, efdte, seqno, wage, limk, oimk, eimk, couid, dept, celmk, data_exch_date)
+ ( select tmp.sno,
+          tmp.ftyp, tmp.ciid as ciid, tmp.idn, tmp.brdte, fn_trn_h_char(tmp.name), tmp.hmk,
+          tmp.uno, tmp.unock,
+          tmp.txcd, tmp.efdte, tmp.seqno, tmp.wage, tmp.limk, tmp.oimk, tmp.eimk, tmp.couid, tmp.dept, tmp.celmk
+    ,TO_DATE('$$w_Exch_Date','YYYYMMDD') AS DATA_EXCH_DATE
+   from  tmp
+ );","SNO,FTYP,CIID,IDN,BRDTE,NAME,HMK,UNO,UNOCK,TXCD,EFDTE,SEQNO,WAGE,LIMK,OIMK,EIMK,COUID,DEPT,CELMK,INTAXNO,UNAME,CZPCD,CADDR,CAREA,FZPCD,FADDR,AREA,IDSTA,INDS,DATA_EXCH_DATE"

@@ -1,0 +1,20 @@
+
+stored procedure修改內容說明：
+	在stored prosedure中加入了類似以下的句子，讓statement還在執行中，卻可以觀察他運行的狀況
+	DBMS_APPLICATION_INFO.SET_MODULE('Records Processed: ' ||now_count, 'Elapsed: ' || (DBMS_UTILITY.GET_TIME - start_time)/100 || ' sec');
+	DBMS_APPLICATION_INFO.SET_CLIENT_INFO('Insert data into STG_TP_TPPFMST');
+
+-------
+1. 執行execute/ call語句前先查詢session_id
+	select sid from v$mystat where rownum=1;
+EX:95
+
+2. 執行execute/ call語句
+
+3. 另開tb_admin將剛剛所得的sid做為條件查詢
+	SELECT sid,client_info,MODULE,action FROM v$session WHERE sid=95;
+	即可從從v$session中看到目前session中語句執行的狀態
+
+
+
+

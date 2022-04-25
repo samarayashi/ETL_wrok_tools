@@ -1,0 +1,27 @@
+oracle_table_name,tibero_table_name,column_name
+ta.tablea, stg_ta_tablea, a
+ta.tablea, stg_ta_tablea, b
+ta.tablea, stg_ta_tablea, c
+ta.tablea, stg_ta_tablea, d
+ta.tablea, stg_ta_tablea, e
+ta.tablea, stg_ta_tablea, f
+ta.tablea, stg_ta_tablea, g
+ta.tablea, stg_ta_tablea, h
+ta.tablea, stg_ta_tablea, i
+ta.tablea, stg_ta_tablea, j
+ta.tablea, stg_ta_tablea, k
+ta.tablea, stg_ta_tablea, l
+ta.tableb, stg_tb_tableb, ba
+tb.tableb, stg_tb_tableb, bb
+tb.tableb, stg_tb_tableb, bc
+tb.tableb, stg_tb_tableb, bc
+tb.tableb, stg_tb_tableb, bd
+tb.tableb, stg_tb_tableb, be
+tb.tableb, stg_tb_tableb, bf
+tb.tableb, stg_tb_tableb, bg
+tb.tableb, stg_tb_tableb, bh
+tb.tableb, stg_tb_tableb, bi
+tb.tableb, stg_tb_tableb, bj
+tb.tableb, stg_tb_tableb, bk
+tb.tableb, stg_tb_tableb, bl
+tb.tableb, stg_tb_tableb, bm

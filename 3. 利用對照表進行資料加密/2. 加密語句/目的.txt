@@ -1,0 +1,14 @@
+0. idn_token為轉換表
+1. 利用left join連接轉換表，把對應到的身分證做加密
+2. 轉換規則
+	對應到則替換成加密後身分證
+	若原表、轉換表都沒值 => null
+	原表若有值，但轉換表上無對應值時 => 給予'no_match'
+		如同要達到以下敘述：
+		t1.idn_token is null and ori.idn is not null => 'no_match'
+		利用以下寫法：
+		decode(NVL(t1.idn_token, ori.idn),
+			t1.idn_token, t1.idn_token
+			null, null
+			ori.idn, 'no_match'
+			)
