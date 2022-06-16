@@ -44,7 +44,7 @@ class DecodeColumnHandler(DataBase):
 
     def __update_new_table_name(self):
         if self.column_handler.new_table_name == 'CHECK YOURSELF':
-            self.column_handler.new_table_name = input(self.column_handler.raw_sql + "\ninput new table name: ")
+            self.column_handler.new_table_name = input("input new table name: ")
 
     def __update_unique_column(self):
         tables = ','.join(f"'{table}'" for table in self.column_handler.all_tables)
