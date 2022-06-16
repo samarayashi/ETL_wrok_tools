@@ -57,7 +57,7 @@
 - 機敏資料欄位，依據sesitive_columns，也可以更新內容
 - MX_SEQ、DATA_EXCH_DATE，目前是hard code嵌入`column_info.DecodeColumnHandler.get_column_detail_list`
   ![image](https://user-images.githubusercontent.com/68182100/174044967-2459dd04-f0d5-4dd5-9f20-44d7e6cb5614.png)
-  - 有新自訂欄位，可以在這邊處理，或是就讓它填入預設值，再手動修改
+  有新自訂欄位，可以在這邊處理，或是就讓它填入預設值，再手動修改
 - 目前test寫在各module底下
 
 ## 程式架構
