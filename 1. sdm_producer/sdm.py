@@ -91,44 +91,40 @@ class SdmProducer(DataBase):
 
         return csv_dict
 
+    @staticmethod
+    def write_sdm_csv(csv_file: str, sdm_rows: list[SdmContent]):
+        sdm_header = list(sdm_rows[0].__dict__.keys())
+        rows = [sdm_row.__dict__ for sdm_row in sdm_rows]
+        if not path.isfile(csv_file):
+            with open(csv_file, mode='w', newline='') as csv_file:
+                writer = csv.DictWriter(csv_file, fieldnames=sdm_header)
+                writer.writeheader()
+                writer.writerows(rows)
+                csv_file.write('\n')
+        else:
+            with open(csv_file, mode='a', newline='') as csv_file:
+                writer = csv.DictWriter(csv_file, fieldnames=sdm_header)
+                writer.writerows(rows)
+                csv_file.write('\n')
 
-def write_sdm_csv(csv_file: str, sdm_rows: list[SdmContent]):
-    sdm_header = list(sdm_rows[0].__dict__.keys())
-    rows = [sdm_row.__dict__ for sdm_row in sdm_rows]
-    if not path.isfile(csv_file):
-        with open(csv_file, mode='w', newline='') as csv_file:
-            writer = csv.DictWriter(csv_file, fieldnames=sdm_header)
-            writer.writeheader()
-            writer.writerows(rows)
-            csv_file.write('\n')
-    else:
-        with open(csv_file, mode='a', newline='') as csv_file:
-            writer = csv.DictWriter(csv_file, fieldnames=sdm_header)
-            writer.writerows(rows)
-            csv_file.write('\n')
+    @staticmethod
+    def write_ddl_txt(file_name: str, file_content: str):
+        with open(file_name, mode='a', newline='') as ddl_file:
+            ddl_file.write(file_content)
+            ddl_file.write('\n---------\n')
 
-
-def write_ddl_txt(file_name: str, file_content: str):
-    with open(file_name, mode='a', newline='') as ddl_file:
-        ddl_file.write(file_content)
-        ddl_file.write('\n---------\n')
-
-
-def write_sensitive_check(csv_name: str, content_dict: dict[str, str]):
-    header = ['TABLE_NAME', 'IDN', 'NAME', 'BIRTH', 'PHONE', 'ADDRESS', 'MAIL', 'BANK_ACCOUNT']
-    if not path.isfile(csv_name):
-        with open(csv_name, mode='w', newline='') as csv_file:
-            writer = csv.DictWriter(csv_file, fieldnames=header)
-            writer.writeheader()
-            writer.writerow(content_dict)
-    else:
-        with open(csv_name, mode='a', newline='') as csv_file:
-            writer = csv.DictWriter(csv_file, fieldnames=header)
-            writer.writerow(content_dict)
-
-
-
-
+    @staticmethod
+    def write_sensitive_check(csv_name: str, content_dict: dict[str, str]):
+        header = ['TABLE_NAME', 'IDN', 'NAME', 'BIRTH', 'PHONE', 'ADDRESS', 'MAIL', 'BANK_ACCOUNT']
+        if not path.isfile(csv_name):
+            with open(csv_name, mode='w', newline='') as csv_file:
+                writer = csv.DictWriter(csv_file, fieldnames=header)
+                writer.writeheader()
+                writer.writerow(content_dict)
+        else:
+            with open(csv_name, mode='a', newline='') as csv_file:
+                writer = csv.DictWriter(csv_file, fieldnames=header)
+                writer.writerow(content_dict)
 
 if __name__ == '__main__':
     test_sql = input_raw_sql = """INSERT INTO TMP_TEST_PART1
@@ -144,7 +140,7 @@ from MRT_TEST_EXT a, MRT_TEST_TABLEB b ,MRT_TEST_TABLEC c     """
     with SdmProducer('tables_information.db') as sdm_producer:
         ddl_text = sdm_producer.get_create_dll(new_table_name)
         sdm_content = sdm_producer.get_sdm_content('wf_test', new_table_name)
-        write_ddl_txt('test_ddl.sql', ddl_text)
-        write_sdm_csv('test_sdm.csv', sdm_content)
+        sdm_producer.write_ddl_txt('test_ddl.sql', ddl_text)
+        sdm_producer.write_sdm_csv('test_sdm.csv', sdm_content)
 
 
