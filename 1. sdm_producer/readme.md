@@ -69,7 +69,7 @@
   產生DB connection, cursor等實例供使用
   - sdm.py  
   產出SDM內容、DDL語句、機敏欄位表格
-  - main.py
+  - main.py  
   帶入sql做使用
   - utils  
   其中帶有清洗SQL內容和分割逗號的工具
