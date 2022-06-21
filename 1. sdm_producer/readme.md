@@ -4,6 +4,7 @@
 111年度新增許多資料範本需求，因此要依需求內容新增MRT_T_XXX(最終呈現表)和TMP_XXX(中間邏輯過度表)，與此同時亦需要將新增表格內容更新到 SDM上。將SQL語句輸入，此程式輔助產出SDM內容、DDL語句、機敏欄位檢測。
 
 ## 使用說明:  
+   [DB Browser for SQLite](https://sqlitebrowser.org/)
 1. 初始化：將以往SDM轉CSV匯入DB.table_info供後續使用  
    - 不論資料庫的表名、欄位名一律保持全大寫  
    - sqilte browser中選csv匯入表格，只要files數對得上就可以匯入(注意UTF8)
